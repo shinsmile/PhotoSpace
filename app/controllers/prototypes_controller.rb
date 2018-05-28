@@ -22,6 +22,16 @@ class PrototypesController < ApplicationController
   def show
   end
 
+  def destroy
+    @prototype = Prototype.find(params[:id])
+    if @prototype.user_id == current_user.id
+      if @prototype.destroy
+        flash[:success] = 'Prototype was successfully deleted.'
+        redirect_to action: :index
+      end
+    end
+  end
+
   private
 
   def set_prototype
