@@ -1,6 +1,9 @@
 class Prototype < ActiveRecord::Base
+  acts_as_taggable
   belongs_to :user
   has_many :captured_images, dependent: :destroy
+  has_many :tag_connect_protos
+  has_many :tags , through: :tag_connect_protos
 
   accepts_nested_attributes_for :captured_images, reject_if: :reject_sub_images
 

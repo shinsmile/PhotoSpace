@@ -32,5 +32,24 @@
         .col-md-12
           %h4 Concept
           = f.text_area :concept, require: true, placeholder: "Input Concept"
+        .col-md-12
+          %h4 Tag List
+          .row
+            = form_for(@user) do |f|
+              .form-group
+                = f.label :user, :name
+                = f.text_field :name, class: "form-control"
+              .form-group
+                = f.label :user, :tag_list
+                = f.text_field :tag_list, value: @user.tag_list.join(','), class: "form-control"
+              .pull-right
+                = f.submit '登録する', class: "btn btn-info"
+
+
+
+
+
+
+
       .row.text-center.proto-btn
         = f.submit "PUBLISH", id: "button", class: "btn btn-lg btn-primary btn-block"
