@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'sqlite3', group: [:development, :test]
+
 gem 'rails', '4.2.5'
 gem 'mysql2', '~> 0.3.18'
 gem 'sass-rails', '~> 5.0'
