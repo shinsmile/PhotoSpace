@@ -20,6 +20,31 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @prototype = Prototype.find(params[:id])
+  end
+
+  def edit
+    @prototype = Prototype.find(params[:id])
+  end
+
+  def update
+    @prototype = Prototype.find(params[:id])
+    if @prototype.user_id == current_user.id
+      if @prototype.update(prototype_params)
+        flash[:success] = 'Prototype was successfully updated.'
+        redirect_to action: :index
+      end
+    end
+  end
+
+  def destroy
+    @prototype = Prototype.find(params[:id])
+    if @prototype.user_id == current_user.id
+      if @prototype.destroy
+        flash[:success] = 'Prototype was successfully deleted.'
+        redirect_to action: :index
+      end
+    end
   end
 
   private
