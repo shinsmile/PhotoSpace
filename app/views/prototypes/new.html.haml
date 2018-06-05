@@ -32,5 +32,16 @@
         .col-md-12
           %h4 Concept
           = f.text_area :concept, require: true, placeholder: "Input Concept"
+        .col-md-12
+          %h4 tag_list
+          .row
+          =f.fields_for :tags do |tag|
+            .col-md-3
+              = f.text_field :catch_copy, require: true, placeholder: "Web Design"
+            .col-md-3
+              = f.text_field :catch_copy, require: true, placeholder: "UI"
+            .col-md-3
+              = f.text_field :catch_copy, require: true, placeholder: "Application"
+
       .row.text-center.proto-btn
         = f.submit "PUBLISH", id: "button", class: "btn btn-lg btn-primary btn-block"

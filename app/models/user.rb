@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
   has_many :prototypes
 
   validates :name, presence: true
+  has_many :captured_images, dependent: :destroy
+  has_many :tagmanages
+  has_many :tags
 end
