@@ -1,9 +1,16 @@
 class CommentsController < ApplicationController
 
   def create
-    @prototype = Prototype.find(params[:id])
-    @comment = @prototype.comments.create(comment: params[:comment], prototype_id: params[:prototype_id], user_id: current_user.id)
-    @comments = Comments.where(prototype_id: params[:prototype_id])
+    @comment = Comment.create(content: comment_params[:content], prototype_id: comment_params[:prototype_id], user_id: current_user.id)
+    @comments = Comment.where(prototype_id: params[:prototype_id])
+    redirect_to :back
+  end
+
+  def comment_params
+    params.require(:comment).permit(
+      :content,
+      :prototype_id
+    )
   end
 
 end

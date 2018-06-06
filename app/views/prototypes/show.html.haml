@@ -41,15 +41,12 @@
 
   .row.proto-comments
     .col-md-8#comment_area
-      %form#new_comment.form-inline
-        = form_for([@prototype, @comment], {:controller => :comments, :action => :create} ) do |f|
-          = f.hidden_field :user_id, value: current_user.id
-          = f.hidden_field :prototype_id, value: @prototype.id
-          %h4 Write a comment
-          .row
-            .form-group.col-md-10
-              = f.text_area :comment, rows: 3, require: true, placeholder: "Your comments", class: "textform-control", id: "#comment_text"
-            .form-group.col-md-2
-              = f.submit "COMMENT", id: "button", class: "btn btn-primary"
-
-
+      = form_for ([@prototype, @comment]) do |f|
+        %h4 Write a comment
+        .row
+          .form-group.col-md-10
+            = f.text_area :content, rows: 3, require: true, placeholder: "Your comments", class: "textform-control", id: "#comment_text"
+            = f.hidden_field :user_id, value: current_user.id
+            = f.hidden_field :prototype_id, value: @prototype.id
+          .form-group.col-md-2
+            = f.submit "COMMENT", id: "button", class: "btn btn-primary"
