@@ -40,8 +40,11 @@
           %a{href: "#", class: "btn btn-default"} wireframe
 
   .row.proto-comments
+    %h4.col-md-12 Comments
     .col-md-8#comment_area
-      = form_for ([@prototype, @comment]) do |f|
+      #comment_list
+        = render partial: 'comments/comment', collection: @comments
+      = form_for [@prototype, @comment], remote: true do |f|
         %h4 Write a comment
         .row
           .form-group.col-md-10
