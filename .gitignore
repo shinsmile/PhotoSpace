@@ -10,3 +10,5 @@
 *.cache
 
 tmp/
+
+*.cache
