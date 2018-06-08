@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :prototypes do
     resources :likes
+    resources :comments
   end
   resources :users
 end

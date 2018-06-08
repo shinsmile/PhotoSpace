@@ -1,0 +1,10 @@
+
+.media
+  .media-left
+    %a{href: "/users/#{comment.user_id}"}
+      %img{alt: "顔写真", height: "64", width: "64", src: "#{comment.user.avatar}"}
+  .media-body
+    %h4.media-heading#top-aligned-media
+      = comment.user.name
+    %p
+      = comment.content
