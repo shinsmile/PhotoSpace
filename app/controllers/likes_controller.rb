@@ -3,6 +3,10 @@ class LikesController < ApplicationController
     @like = Like.create(user_id: current_user.id, prototype_id: params[:prototype_id])
     @likes = Like.where(prototype_id: params[:prototype_id])
     @prototypes = Ptototype.all
+    @prototype = Prototype.find(params[:id])
+    if @like.save
+      render :create
+    end
   end
 
   def destroy
