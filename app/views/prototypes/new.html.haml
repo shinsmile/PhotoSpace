@@ -35,13 +35,15 @@
         .col-md-12
           %h4 tag_list
           .row
-          =f.fields_for :tags do |tag|
+          = f.fields_for :tags do |tag1|
             .col-md-3
-              = f.text_field :catch_copy, require: true, placeholder: "Web Design"
+              = tag1.text_field :name, require: true, placeholder: "Web Design"
+          = f.fields_for :tags do |tag2|
             .col-md-3
-              = f.text_field :catch_copy, require: true, placeholder: "UI"
+              = tag2.text_field :name, require: true, placeholder: "UI"
+          = f.fields_for :tags do |tag3|
             .col-md-3
-              = f.text_field :catch_copy, require: true, placeholder: "Application"
+              = tag3.text_field :name, require: true, placeholder: "Application"
 
       .row.text-center.proto-btn
         = f.submit "PUBLISH", id: "button", class: "btn btn-lg btn-primary btn-block"

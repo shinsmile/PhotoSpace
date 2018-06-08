@@ -1,10 +1,11 @@
 class Prototype < ActiveRecord::Base
   belongs_to :user
   has_many :captured_images, dependent: :destroy
-  has_many :tagmanage, dependent: :destroy
-  has_many :tags, through: :tagmanage
+  has_many :tagmanages, dependent: :destroy
+  has_many :tags, through: :tagmanages
 
   accepts_nested_attributes_for :captured_images, reject_if: :reject_sub_images
+  accepts_nested_attributes_for :tags
 
   validates :title,
             :catch_copy,

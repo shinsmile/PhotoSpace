@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20180530005903) do
   add_index "tagmanages", ["tag_id"], name: "fk_rails_d466abd50d", using: :btree
 
   create_table "tags", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name",       limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
